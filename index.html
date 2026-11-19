@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="用半小时粒度规划家庭设备，比较峰谷电价下两种排程的电费。"><link rel="icon" href="data:,">
+<title>瓦时 WattShift · 错峰用电模拟器</title><link rel="stylesheet" href="style.css"><script defer src="planner.js"></script><script defer src="app.js"></script></head>
+<body><main><header><b class="brand"><i aria-hidden="true">ϟ</i> WattShift</b><span>家庭能源实验室</span></header>
+<section class="intro"><div><h1>错峰用电模拟器</h1><p>把设备移到便宜的半小时，看看一天能省多少。</p></div><button id="reset">恢复示例</button></section>
+<div class="grid"><section class="board"><div class="head"><h2>全天电价</h2><span>示例费率 · 元 / kWh</span></div>
+<div class="chart" id="chart" role="img" aria-label="0至8时和22至24时为谷价，11至13时和18至22时为峰价，其余为平价"></div>
+<label class="probe"><span class="ghost" id="ghost" aria-hidden="true"></span><input type="range" id="hour" min="0" max="23" value="18" aria-label="拖动电价幽灵查看整点电价"></label>
+<div class="ticks"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+<p class="reading"><label for="hour">电价幽灵巡查</label><output id="reading" for="hour"></output></p>
+<div class="legend"><span>● 谷 0.32</span><span>● 平 0.62</span><span>● 峰 1.02</span></div>
+<div class="head line"><h2>设备时间轴</h2><span>同一时间运行一台</span></div>
+<div id="tracks"></div><p id="schedule" class="schedule"></p></section>
+<aside aria-live="polite"><h2>本次预计节省</h2><div class="amount" id="saving">—</div><p id="percent"></p><dl><div><dt>尽早启动</dt><dd id="base">—</dd></div><div><dt>错峰运行</dt><dd id="opt">—</dd></div><div><dt>总用电量</dt><dd id="energy">—</dd></div></dl></aside></div>
+<section class="devices"><div class="head"><h2>设备设置</h2><span>修改参数后自动重算</span></div><div id="jobs"></div></section>
+<noscript>请启用 JavaScript 以计算电费和运行时间。</noscript></main></body></html>
